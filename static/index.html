@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festiva Planner AI - Your AI Event Planning Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-calendar-star"></i>
+                <span>Festiva Planner AI</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#planner" class="nav-link">Plan Event</a>
+                <a href="#knowledge" class="nav-link">Knowledge Base</a>
+                <a href="/docs" class="nav-link" target="_blank">API Docs</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">AI-Powered</span> Event Planning
+                </h1>
+                <p class="hero-subtitle">
+                    Plan your perfect event with intelligent recommendations, budget optimization, and expert knowledge
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToPlanner()">
+                        <i class="fas fa-magic"></i> Start Planning
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToKnowledge()">
+                        <i class="fas fa-book"></i> Learn More
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <h3>6+</h3>
+                            <p>Event Types</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <h3>AI-Powered</h3>
+                            <p>Smart Planning</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h3>Budget</h3>
+                            <p>Optimization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Festiva?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Event Planner</h3>
+                    <p>Generate complete event plans with timelines and task checklists powered by AI</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Budget Optimizer</h3>
+                    <p>ML-powered cost allocation and budget optimization for your event</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Knowledge Assistant</h3>
+                    <p>Get expert answers to your event planning questions instantly</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Vendor Suggestions</h3>
+                    <p>Smart vendor recommendations based on your budget and preferences</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Timeline Generation</h3>
+                    <p>Automated task scheduling with critical path identification</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Multi-Agent System</h3>
+                    <p>Coordinated AI agents working together for perfect planning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Planner Section -->
+    <section id="planner" class="planner">
+        <div class="container">
+            <h2 class="section-title">Plan Your Event</h2>
+            <p class="section-subtitle">Fill in the details and let AI create your perfect event plan</p>
+            
+            <div class="planner-container">
+                <div class="planner-form">
+                    <form id="eventForm">
+                        <div class="form-group">
+                            <label for="eventType">
+                                <i class="fas fa-calendar"></i> Event Type
+                            </label>
+                            <select id="eventType" required>
+                                <option value="">Select event type...</option>
+                                <option value="wedding">💍 Wedding</option>
+                                <option value="corporate">💼 Corporate Event</option>
+                                <option value="birthday">🎂 Birthday Party</option>
+                                <option value="anniversary">🎊 Anniversary</option>
+                                <option value="conference">🎤 Conference</option>
+                                <option value="party">🎉 Party</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">
+                                    <i class="fas fa-map-marker-alt"></i> City
+                                </label>
+                                <input type="text" id="city" placeholder="e.g., Bangalore" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">
+                                    <i class="fas fa-rupee-sign"></i> Budget (INR)
+                                </label>
+                                <input type="number" id="budget" placeholder="e.g., 1000000" required min="10000">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="guestCount">
+                                    <i class="fas fa-users"></i> Guest Count
+                                </label>
+                                <input type="number" id="guestCount" placeholder="e.g., 200" min="1">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eventDate">
+                                    <i class="fas fa-calendar-day"></i> Event Date (Optional)
+                                </label>
+                                <input type="date" id="eventDate">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preferences">
+                                <i class="fas fa-heart"></i> Preferences (comma-separated)
+                            </label>
+                            <input type="text" id="preferences" placeholder="e.g., outdoor, traditional, vegetarian">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="requirements">
+                                <i class="fas fa-clipboard-list"></i> Special Requirements
+                            </label>
+                            <textarea id="requirements" rows="3" placeholder="Any special requirements or notes..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-magic"></i> Generate Event Plan
+                        </button>
+                    </form>
+                </div>
+
+                <div id="results" class="results" style="display: none;">
+                    <div class="results-header">
+                        <h3><i class="fas fa-check-circle"></i> Your Event Plan</h3>
+                        <button class="btn btn-small" onclick="downloadPlan()">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                    
+                    <div id="resultsContent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Base Section -->
+    <section id="knowledge" class="knowledge">
+        <div class="container">
+            <h2 class="section-title">Knowledge Base</h2>
+            <p class="section-subtitle">Ask anything about event planning</p>
+            
+            <div class="knowledge-container">
+                <div class="knowledge-search">
+                    <form id="knowledgeForm">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="knowledgeQuery" placeholder="e.g., How to plan a wedding timeline?" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Ask
+                            </button>
+                        </div>
+                        
+                        <div class="quick-questions">
+                            <p>Quick questions:</p>
+                            <button type="button" class="tag" onclick="askQuestion('How to plan a wedding timeline?')">
+                                Wedding Timeline
+                            </button>
+                            <button type="button" class="tag" onclick="askQuestion('What is the typical budget allocation for a wedding?')">
+                                Budget Allocation
+                            </button>
+                            <button type="button" class="tag" onclick="askQuestion('Best practices for corporate event planning')">
+                                Corporate Events
+                            </button>
+                            <button type="button" class="tag" onclick="askQuestion('How to select event vendors?')">
+                                Vendor Selection
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="knowledgeResults" class="knowledge-results" style="display: none;">
+                    <div class="answer-card">
+                        <div class="answer-header">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Assistant</span>
+                        </div>
+                        <div id="knowledgeAnswer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-calendar-star"></i> Festiva Planner AI</h3>
+                    <p>Your intelligent event planning assistant powered by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#planner">Plan Event</a>
+                    <a href="#knowledge">Knowledge Base</a>
+                    <a href="/docs" target="_blank">API Documentation</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Types</h4>
+                    <a href="#planner">Weddings</a>
+                    <a href="#planner">Corporate Events</a>
+                    <a href="#planner">Birthday Parties</a>
+                    <a href="#planner">Conferences</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Festiva Planner AI. Made with ❤️ for event planners everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Creating your perfect event plan...</p>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
